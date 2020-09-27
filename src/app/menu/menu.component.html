@@ -1,0 +1,18 @@
+<section class="menu">
+  <ul>
+    <li  *ngFor="let item of menu; let indx = index">
+      <a [routerLink]="item.ref" (click)="submenuShow(indx)">{{item.name}}</a>
+      <ul>
+        <li *ngFor="let subItem of item.submenu; let subIndx = index" >
+          <a *ngIf="item.visibility" [routerLink]="subItem.ref" > {{subItem.name}}</a>
+          <ul>
+            <li *ngFor="let subSubItem of subItem.submenu">
+              <a *ngIf="item.visibility" [routerLink]="subSubItem.ref"> {{subSubItem.name}}</a>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+
